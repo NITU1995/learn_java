@@ -1,0 +1,59 @@
+- Queue interface in java is part of java.util package, represent a data structure holds element before processing.
+- Queue implementations are broadly categorized into FIFO Queues, Dequeues (Double-Ended Queues), and Priority Queues.
+
+- Key points:
+    * Extends Collection Interface: provides additional methods like inserting, removing & inspecting elements
+    * Not instantiable: directly. Can implement by concrete class like LinkedList, PriorityQueue & ArrayDeque
+    * FIFO principle
+    * Exception Handling: 2 ways of inserting/removing elements. One that throws exception and the other that returns null/false.
+
+- Methods:
+    * add(e): Add element, throws exception in case it fails
+    * offer(e): Add element, returns null in case it fails
+    * remove(): remove the element, end of the queue, throws exception in case it fails
+    * poll(): remove the element, end of the queue, throws exception in case it fails
+    * element(): Retrieve element, doesn't remove, from head, throws exception if queue is empty
+    * peek(): Retrieve element, doesn't remove, from head, returns null if queue is empty
+
+- FIFO Queue:
+    * Elements added at the end of tail, and removed from head
+    * Common implementation:
+        # LinkedList:
+            - Implements both Queue & Deque
+            - Elements Stored as nodes
+            - Efficient insertion & deletion
+        # ArrayDeque
+            - Resizable array-based implementation.
+            - More efficient that LinkedList queue operations as it avoids node creation.
+    * Use case: Task scheduling, customer service
+
+- PriorityQueue:
+    * A specialized queue where elements stored based on the priority rather than insertion order.
+    * Lower values typically represent the higher order(default behavior).
+    * Implementation:
+        # PriorityQueue: Backed by a binary heap.(Complete binary tree with Min-heap)
+        # Custom Comparators: Can be used to define custom ordering of elements.
+    * Use cases:
+        # Job Scheduling: Assigning job to the processor based on priority
+        # Event Handling: Handling high priority jobs before others
+
+- ArrayDeque:
+    * A double ended queue allows insertion and removal at both head & tail.
+    * Can be used as both stack(LIFO) & queue(FIFO).
+    * Implementation:
+        # ArrayDeque:
+            - Array-based implementation of Deque.
+            - Preferred over LinkedList for both stacks and queues due to better cache locality and performance.
+        # LinkedList:
+            - Node-based implementation of Deque.
+            - Allows efficient element insertion and removal at both ends.
+
+    * Specialized Methods
+         # addFirst(), addLast(): Add elements to the front or back.
+         # pollFirst(), pollLast(): Remove elements from the front or back.
+         # peekFirst(), peekLast(): Retrieve elements without removing.
+
+    * Use cases:
+        # Undo Operations: undo/redo functionality
+        # Sliding window problems:  Efficiently process elements in a sliding window.
+
